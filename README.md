@@ -1,20 +1,20 @@
-# GhostEAD – Caçador de cursos fantasmas (`tool_ghostead`)
+# GhostEAD – Ghost Course Hunter (`tool_ghostead`)
 
-Plugin de administração para Moodle que encontra **cursos fantasmas** (abandonados, vazios ou sem uso) e permite **ocultar** ou **arquivar** em lote, de forma segura e reversível.
+A Moodle administration plugin that identifies **ghost courses** (abandoned, empty, or unused courses) and allows administrators to **hide** or **archive** them in bulk, safely and reversibly.
 
-> Status: **0.2.0 – alpha**. Teste em ambiente de homologação antes de usar em produção.
+> Status: **0.3.0 – alpha**. Test in a staging environment before using in production.
 >
-> Compatibilidade: **Moodle 3.7 ou superior** (PHP 7.1+). O código evita sintaxe de PHP mais novo para rodar em instalações antigas.
+> Compatibility: **Moodle 3.7 or higher** (PHP 7.1+). The code avoids newer PHP syntax to ensure compatibility with older installations.
 
-## Como funciona
+## How it works
 
-Cada curso recebe um **índice fantasma de 0 a 100**:
+Each course receives a **Ghost Score ranging from 0 to 100**:
 
-| Sinal | Pontos |
-|---|---|
-| Sem acesso na janela de inatividade (padrão: 6 meses) | 40 |
-| Sem alunos | 25 |
-| Sem professores | 15 |
-| Curso vazio (até 1 atividade, o fórum de avisos automático) | 20 |
+| Indicator | Points |
+|---|---:|
+| No access during the inactivity period (default: 6 months) | 40 |
+| No enrolled students | 25 |
+| No teachers | 15 |
+| Empty course (up to 1 activity, the automatically created announcements forum) | 20 |
 
-Só aparecem na lista cursos com pontuação ≥ mínimo configurado (padrão 60). Cursos criados há menos de 30 dias são ignorados.
+Only courses with a score equal to or higher than the configured minimum (default: 60) are displayed in the list. Courses created within the last 30 days are excluded.
